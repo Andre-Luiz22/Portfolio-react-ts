@@ -13,7 +13,7 @@ export default {
           "0 0px 89px -14px rgba(0, 0, 0, 0.3), 0px 0px 47px -6px rgba(0, 0, 0, 0.3)",
       },
       transitionProperty: {
-        mine: "color, background, opacity",
+        mine: "font-color, background, opacity",
       },
       colors: {
         background: {

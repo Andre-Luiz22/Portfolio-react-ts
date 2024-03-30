@@ -13,7 +13,7 @@ export function Avatar() {
   return (
     <div className="relative mx-[0.94rem] flex self-center justify-center items-center w-fit my-6 gap-4 pb-4">
       <div className="w-[13.75rem] h-[13.75rem] bg-main-l dark:bg-main-d opacity-50 rounded-full animate-spin-slow shadow-avatar shadow-main-l">
-        <div className="p-2 bg-background-l dark:bg-background-d flex absolute rounded-full top-2 left-6">
+        <div className="p-2 bg-background-l dark:bg-background-d flex absolute rounded-full top-2 left-6 ">
           <FaHtml5 size={20} className="text-main-l dark:text-main-d" />
         </div>
         <div className="p-2 bg-background-l dark:bg-background-d flex absolute rounded-full top-40 left-0">
