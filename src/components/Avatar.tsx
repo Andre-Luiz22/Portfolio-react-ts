@@ -11,8 +11,8 @@ import { SiTypescript } from "react-icons/si";
 
 export function Avatar() {
   return (
-    <div className="relative mx-[0.94rem] flex self-center justify-center items-center w-fit my-6 gap-4 pb-4">
-      <div className="w-[13.75rem] h-[13.75rem] bg-main-l dark:bg-main-d opacity-50 rounded-full animate-spin-slow shadow-avatar shadow-main-l">
+    <div className="relative mx-[0.94rem] flex self-center justify-center items-center w-fit my-6 gap-4 pb-4 aboutMe:order-2">
+      <div className="w-[20vw] h-[20vw] min-h-[220px] min-w-[220px]  bg-main-l dark:bg-main-d opacity-50 rounded-full animate-spin-slow shadow-avatar shadow-main-l">
         <div className="p-2 bg-background-l dark:bg-background-d flex absolute rounded-full top-2 left-6 ">
           <FaHtml5 size={20} className="text-main-l dark:text-main-d" />
         </div>
@@ -41,7 +41,7 @@ export function Avatar() {
       </div>
       <div className="flex justify-center w-[25vw] absolute min-w-[18.75rem] bottom-0">
         <img
-          className="w-[60%] rounded-bl-3xl rounded-br-3xl"
+          className="w-[60%] max-w-[180px] aboutMe:max-w-[500px] rounded-bl-3xl rounded-br-3xl"
           src={avatarAndre}
           alt=""
         />

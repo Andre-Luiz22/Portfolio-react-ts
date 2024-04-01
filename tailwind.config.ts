@@ -40,6 +40,11 @@ export default {
       animation: {
         "spin-slow": "spin 30s linear infinite",
       },
+      screens: {
+        aboutMe: "940px",
+        "300sx": "300px",
+        "320sx": "320px",
+      },
     },
   },
   plugins: [],
