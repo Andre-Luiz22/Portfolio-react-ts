@@ -413,7 +413,7 @@ export function App() {
               tecnology="Node.JS"
             />
           </form>
-          <div className="w-full overflow-y-hidden">
+          <div className="w-full overflow-y-hidden scrollbar-hide">
             <div className="flex gap-4 lg:flex-wrap lg:justify-center">
               {cards.map((card) => (
                 <CarrousselCard
@@ -457,7 +457,7 @@ export function App() {
             <strong className="text-text-l dark:text-text-d opacity-50 font-normal text-xl">
               Tecnolgias que conheço
             </strong>
-            <div className="overflow-y-hidden w-full">
+            <div className="overflow-y-hidden w-full scrollbar-hide">
               <div className="flex gap-3 w-full sm:justify-center">
                 <FaHtml5
                   size={70}
@@ -568,7 +568,7 @@ export function App() {
               <span className="opacity-50 text-sm">xxxx - Atualmente</span>
             </div>
             <div>
-              <div className="overflow-y-auto max-h-96">
+              <div className="overflow-y-auto max-h-96 scrollbar-hide">
                 <div className=" flex gap-4 rounded-2xl sm:flex-col ">
                   <AreaAcademicaCard />
                   <AreaAcademicaCard />
