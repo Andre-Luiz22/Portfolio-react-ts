@@ -31,7 +31,7 @@ export function CarrousselCard({
           <h2 className="font-bold text-xl">{title}</h2>
           <p className="opacity-50 text-sm group-hover:opacity-100">{desc}</p>
         </div>
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-2 flex-wrap mt-2">
           {tags.map((tag) => (
             <CarrousselCardTag key={tag.id} code={tag.value} />
           ))}

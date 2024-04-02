@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Header } from "./components/Header";
 import { Avatar } from "./components/Avatar";
 import { FaRegHandPeace } from "react-icons/fa6";
+import { GitHub, Linkedin } from "react-feather";
 import imgAboutMe from "./assets/imgAboutMe.svg";
 import {
   Download,
@@ -13,15 +14,41 @@ import {
   RocketLaunch,
   Link,
   ArrowRight,
+  Lightning,
+  Suitcase,
+  EnvelopeSimple,
+  PaperPlaneTilt,
+  Copy,
+  ArrowUp,
+  Copyright,
 } from "phosphor-react";
 import { ExperienceCard } from "./components/ExperienceCard";
 import { ExperienceText } from "./components/ExperienceText";
 import { TagSection } from "./components/TagSection";
 import { CarrousselFilter } from "./components/CarrousselFilter";
-import { FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
-import { CarrousselCard, CarrousselCardProps} from "./components/CarrousselCard";
-
-
+import {
+  SiJavascript,
+  SiTypescript,
+  SiNextdotjs,
+  SiNestjs,
+  SiFlutter,
+} from "react-icons/si";
+import {
+  FaHtml5,
+  FaNodeJs,
+  FaReact,
+  FaPython,
+  FaCss3Alt,
+  FaSass,
+  FaGitAlt,
+  FaGithub,
+} from "react-icons/fa";
+import {
+  CarrousselCard,
+  CarrousselCardProps,
+} from "./components/CarrousselCard";
+import { Monster } from "./components/Monster";
+import { AreaAcademicaCard } from "./components/AreaAcademicaCard";
 
 const cards: CarrousselCardProps[] = [
   {
@@ -32,15 +59,15 @@ const cards: CarrousselCardProps[] = [
     tags: [
       {
         id: 1,
-        value :"html",
+        value: "html",
       },
       {
         id: 2,
-        value :"react",
+        value: "react",
       },
       {
         id: 3,
-        value :"node",
+        value: "node",
       },
     ],
   },
@@ -52,11 +79,11 @@ const cards: CarrousselCardProps[] = [
     tags: [
       {
         id: 1,
-        value :"html",
+        value: "html",
       },
       {
         id: 2,
-        value :"react",
+        value: "react",
       },
     ],
   },
@@ -68,15 +95,15 @@ const cards: CarrousselCardProps[] = [
     tags: [
       {
         id: 1,
-        value :"html",
+        value: "html",
       },
       {
         id: 2,
-        value :"react",
+        value: "react",
       },
       {
         id: 3,
-        value :"node",
+        value: "node",
       },
     ],
   },
@@ -88,15 +115,15 @@ const cards: CarrousselCardProps[] = [
     tags: [
       {
         id: 1,
-        value :"html",
+        value: "html",
       },
       {
         id: 2,
-        value :"react",
+        value: "react",
       },
       {
         id: 3,
-        value :"node",
+        value: "node",
       },
     ],
   },
@@ -108,11 +135,11 @@ const cards: CarrousselCardProps[] = [
     tags: [
       {
         id: 1,
-        value :"react",
+        value: "react",
       },
       {
         id: 2,
-        value :"node",
+        value: "node",
       },
     ],
   },
@@ -124,7 +151,7 @@ const cards: CarrousselCardProps[] = [
     tags: [
       {
         id: 1,
-        value :"node",
+        value: "node",
       },
     ],
   },
@@ -136,7 +163,7 @@ const cards: CarrousselCardProps[] = [
     tags: [
       {
         id: 1,
-        value :"html",
+        value: "html",
       },
     ],
   },
@@ -148,15 +175,15 @@ const cards: CarrousselCardProps[] = [
     tags: [
       {
         id: 1,
-        value :"html",
+        value: "html",
       },
       {
         id: 2,
-        value :"react",
+        value: "react",
       },
       {
         id: 3,
-        value :"node",
+        value: "node",
       },
     ],
   },
@@ -168,7 +195,7 @@ const cards: CarrousselCardProps[] = [
     tags: [
       {
         id: 1,
-        value :"react",
+        value: "react",
       },
     ],
   },
@@ -180,15 +207,15 @@ const cards: CarrousselCardProps[] = [
     tags: [
       {
         id: 1,
-        value :"html",
+        value: "html",
       },
       {
         id: 2,
-        value :"react",
+        value: "react",
       },
       {
         id: 3,
-        value :"node",
+        value: "node",
       },
     ],
   },
@@ -241,11 +268,11 @@ export function App() {
         </div>
 
         <div className="flex flex-col  sm:flex-row sm:gap-4 sm:items-center aboutMe:order-3">
-          <div className="flex items-center gap-2 max-w-fit opacity-80 font-bold text-lg my-4 hover:opacity-100 transition duration-200">
+          <div className="flex items-center gap-2 max-w-fit opacity-50 font-bold text-lg my-4 hover:opacity-100 transition duration-200">
             <button className="text-main-d ">Baixar CV</button>
             <Download size={25} className="text-main-d" weight="fill" />
           </div>
-          <div className=" flex items-center gap-2 max-w-fit opacity-80 font-bold text-lg p-1 hover:opacity-100 border rounded-md border-main-l dark:border-main-d transition duration-200 h-fit">
+          <div className=" flex items-center gap-2 max-w-fit opacity-50 font-bold text-lg p-1 hover:opacity-100 border rounded-md border-main-l dark:border-main-d transition duration-200 h-fit">
             <WhatsappLogo size={25} className="text-main-d" />
             <button className="text-main-d">Vamos conversar</button>
           </div>
@@ -372,7 +399,7 @@ export function App() {
             content="Portfólio"
           />
           <div className="text-text-l dark:text-text-d">
-            <p className="flex flex-col font-extrabold text-4xl sm:flex-row sm:justify-center">
+            <p className="flex flex-col font-extrabold text-4xl sm:flex-row sm:justify-center sm:gap-2">
               Trabalhos <span>e Projetos</span>
             </p>
           </div>
@@ -389,7 +416,13 @@ export function App() {
           <div className="w-full overflow-y-hidden">
             <div className="flex gap-4 lg:flex-wrap lg:justify-center">
               {cards.map((card) => (
-                <CarrousselCard key={card.id} img={card.img} desc={card.desc} title={card.title} tags={card.tags}/>
+                <CarrousselCard
+                  key={card.id}
+                  img={card.img}
+                  desc={card.desc}
+                  title={card.title}
+                  tags={card.tags}
+                />
               ))}
             </div>
           </div>
@@ -401,6 +434,233 @@ export function App() {
           </a>
         </div>
       </section>
+      <section className="mx-[0.94rem] flex flex-col gap-12 mb-20">
+        <div className="flex flex-col gap-4 sm:items-center">
+          <TagSection
+            icon={
+              <Lightning
+                size={25}
+                weight="fill"
+                className="dark:text-main-d text-main-l drop-shadow-lg "
+              />
+            }
+            content="Habilidades"
+          />
+          <div className="text-text-l dark:text-text-d">
+            <p className="flex flex-col font-extrabold text-4xl sm:flex-row sm:justify-center sm:gap-2">
+              Tecnologias <span>e Habilidades</span>
+            </p>
+          </div>
+        </div>
+        <div className="space-y-12">
+          <div className="flex flex-col gap-3 sm:items-center">
+            <strong className="text-text-l dark:text-text-d opacity-50 font-normal text-xl">
+              Tecnolgias que conheço
+            </strong>
+            <div className="overflow-y-hidden w-full">
+              <div className="flex gap-3 w-full sm:justify-center">
+                <FaHtml5
+                  size={70}
+                  className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                />
+                <FaCss3Alt
+                  size={70}
+                  className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                />
+                <SiJavascript
+                  size={70}
+                  className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                />
+                <SiTypescript
+                  size={70}
+                  className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                />
+                <FaPython
+                  size={70}
+                  className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                />
+                <FaSass
+                  size={70}
+                  className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                />
+                <FaGitAlt
+                  size={70}
+                  className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                />
+                <FaGithub
+                  size={70}
+                  className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="flex flex-col gap-3 sm:items-center">
+              <strong className="text-text-l dark:text-text-d opacity-50 font-normal text-xl">
+                Tecnolgias que ainda vou aprender
+              </strong>
+              <div className="overflow-y-hidden w-full">
+                <div className="flex gap-3 w-full sm:justify-center">
+                  <SiNextdotjs
+                    size={70}
+                    className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                  />
+                  <SiNestjs
+                    size={70}
+                    className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                  />
+                  <SiFlutter
+                    size={70}
+                    className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="mx-[0.94rem] flex flex-col gap-12 mb-20">
+        <div className="flex flex-col gap-4 sm:items-center">
+          <TagSection
+            icon={
+              <Suitcase
+                size={25}
+                weight="fill"
+                className="dark:text-main-d text-main-l drop-shadow-lg "
+              />
+            }
+            content="Carreira"
+          />
+          <div className="text-text-l dark:text-text-d">
+            <p className="flex flex-col font-extrabold text-4xl sm:flex-row sm:justify-center sm:gap-2">
+              Trajetória <span>até aqui</span>
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-8 sm:flex-row sm:justify-center">
+          <div>
+            <div className="text-text-l dark:text-text-d sm:flex sm:flex-col sm:items-center">
+              <h2 className="flex flex-col font-bold text-3xl sm:flex-row  sm:gap-2 ">
+                Área <span>Profissional</span>
+              </h2>
+              <span className="opacity-50 text-sm">xxxx - Atualmente</span>
+            </div>
+            <div>
+              <div className="sm:flex sm:flex-col max-h-96">
+                <div className="border border-main-l dark:border-main-d flex gap-8 rounded-2xl items-center w-fit pr-4">
+                  <Monster theme={theme} />
+                  <strong className="text-text-l dark:text-text-d font-medium">
+                    Ainda a procura da
+                    <br /> primeira{" "}
+                    <b className="text-main-l dark:text-main-d font-black">
+                      vaga
+                    </b>
+                  </strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="text-text-l dark:text-text-d sm:flex sm:flex-col sm:items-center">
+              <h2 className="flex flex-col font-bold text-3xl sm:flex-row  sm:gap-2 ">
+                Área <span>Acadêmica</span>
+              </h2>
+              <span className="opacity-50 text-sm">xxxx - Atualmente</span>
+            </div>
+            <div>
+              <div className="overflow-y-auto max-h-96">
+                <div className=" flex gap-4 rounded-2xl sm:flex-col ">
+                  <AreaAcademicaCard />
+                  <AreaAcademicaCard />
+                  <AreaAcademicaCard />
+                  <AreaAcademicaCard />
+                  <AreaAcademicaCard />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="mx-[0.94rem] flex flex-col gap-12 mb-20">
+        <div className="flex flex-col gap-4 sm:items-center">
+          <TagSection
+            icon={
+              <EnvelopeSimple
+                size={25}
+                weight="bold"
+                className="dark:text-main-d text-main-l drop-shadow-lg "
+              />
+            }
+            content="Contato"
+          />
+          <div className="text-text-l dark:text-text-d">
+            <p className="flex flex-col font-extrabold text-4xl sm:flex-row sm:justify-center sm:gap-2">
+              Entre <span>em contato</span>
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-6 sm:items-center">
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-center">
+            <div className=" flex items-center gap-2 max-w-fit opacity-50 font-bold text-lg p-1 hover:opacity-100 border rounded-md border-main-l dark:border-main-d transition duration-200 h-fit">
+              <WhatsappLogo size={25} className="text-main-d" />
+              <button className="text-main-d">Vamos conversar</button>
+            </div>
+            <div>
+              <PaperPlaneTilt
+                size={25}
+                weight="bold"
+                className="dark:text-main-d text-main-l drop-shadow-lg opacity-70"
+              />
+              <h3 className="text-main-l dark:text-main-d font-bold text-xl">
+                E-mail
+              </h3>
+              <span className="text-text-l dark:text-text-d flex gap-2 items-center">
+                andreluiz01bhz@gmail.com{" "}
+                <Copy
+                  size={30}
+                  weight="bold"
+                  className="dark:text-main-d text-main-l drop-shadow-lg opacity-70 transition duration-500 hover:opacity-100"
+                />
+              </span>
+            </div>
+          </div>
+          <button className="text-main-l dark:text-main-d opacity-70 hover:opacity-100 text-lg flex gap-3 font-extrabold">
+            Voltar ao topo{" "}
+            <ArrowUp
+              size={30}
+              weight="bold"
+              className="dark:text-main-d text-main-l drop-shadow-lg opacity-70 transition duration-500 hover:opacity-100"
+            />
+          </button>
+        </div>
+      </section>
+      <footer className="bg-main-opaca-l dark:bg-main-opaca-d space-y-4 py-4">
+        <div className="flex items-center justify-center gap-4">
+          <div className="bg-icone-l dark:bg-icone-d opacity-50 p-2 rounded-full  hover:opacity-100 transition duration-500">
+            <a href="#" target="_blank">
+              <Linkedin
+                size={25}
+                className="text-background-l dark:text-background-d"
+                strokeWidth={2}
+                fill={theme === "dark" ? "#F5F3F7" : "#090e16"}
+              />
+            </a>
+          </div>
+          <div className="bg-icone-l dark:bg-icone-d opacity-50 p-2 rounded-full hover:opacity-100 transition duration-500">
+            <a href="https://github.com/Andre-Luiz22" target="_blank">
+              <GitHub
+                size={25}
+                className="text-background-l dark:text-background-d "
+                strokeWidth={2}
+                fill={theme === "dark" ? "#F5F3F7" : "#090e16"}
+              />
+            </a>
+          </div>
+        </div>
+        <span className="flex gap-2 items-center text-text-l dark:text-text-d opacity-50 justify-center ">
+          Copyright <Copyright /> André Luiz - 2024
+        </span>
+      </footer>
     </div>
   );
 }
