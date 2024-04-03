@@ -26,6 +26,7 @@ export function Header({ onChangeTheme, theme }: HeaderProps) {
               size={25}
               className="text-background-l dark:text-background-d"
               strokeWidth={2}
+              fill={theme === "dark" ? "#F5F3F7" : "#090e16"}
             />
           </div>
         </a>

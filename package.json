@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@lordicon/react": "^1.6.0",
+    "antd": "^5.16.0",
+    "copy-to-clipboard": "^3.3.3",
     "lottie-web": "^5.12.2",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
