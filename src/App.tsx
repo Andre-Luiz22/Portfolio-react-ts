@@ -242,8 +242,8 @@ export function App() {
     const prefersColorScheme = window.matchMedia(
       "(prefers-color-scheme: dark)"
     );
-    setTheme(prefersColorScheme.matches ? "dark" : "light");
-  },[]);
+    setTheme(prefersColorScheme.matches ? "light" : "dark");
+  }, []);
 
   // useEffect(() => {}, []);
 
