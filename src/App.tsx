@@ -52,6 +52,8 @@ import {
 } from "./components/CarrousselCard";
 import { Monster } from "./components/Monster";
 import { AreaAcademicaCard } from "./components/AreaAcademicaCard";
+import { ANDRoidEButton } from "./components/ANDRoidEButton";
+import { ModalANDRoidE } from "./components/ModalANDRoidE";
 
 const cards: CarrousselCardProps[] = [
   {
@@ -226,6 +228,8 @@ const cards: CarrousselCardProps[] = [
 
 export function App() {
   const [theme, setTheme] = useState("light");
+  const [messageApi, contextHolder] = message.useMessage();
+  const [visibilityModalANDRoidE, setVisibityModalANDRoidE] = useState(false);
   useEffect(() => {
     if (theme === "light") {
       document.documentElement.classList.add("dark");
@@ -244,13 +248,19 @@ export function App() {
   function handleThemeSwitcher() {
     setTheme(theme === "dark" ? "light" : "dark");
   }
-  const [messageApi, contextHolder] = message.useMessage();
   function copyEmail() {
     messageApi.success({
       type: "success",
       content: "Email copiado com sucesso",
     });
     copy("andreluiz01bhz@gmail.com");
+  }
+
+  function goTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }
 
   return (
@@ -273,6 +283,14 @@ export function App() {
       }}
     >
       <div className="bg-background-l dark:bg-background-d transition duration-1000 pt-[0.94rem] antialiased font-ralaway overflow-x-hidden ">
+        <ANDRoidEButton
+          setModalANDRoidEVisibility={setVisibityModalANDRoidE}
+          visibilityModalANDRoidE={visibilityModalANDRoidE}
+        />
+        <ModalANDRoidE
+          visibilityModalANDRoidE={visibilityModalANDRoidE}
+          setModalANDRoidEVisibility={setVisibityModalANDRoidE}
+        />
         <Header onChangeTheme={handleThemeSwitcher} theme={theme} />
         <section className="flex flex-col mt-8 mx-[0.94rem] mb-24 aboutMe:flex-row aboutMe:items-center aboutMe:justify-evenly">
           <Avatar />
@@ -467,7 +485,7 @@ export function App() {
             </div>
             <a
               href="#"
-              className="text-main-l dark:text-main-d flex gap-2 items-center self-end border border-main-l dark:border-main-d py-2 px-4 rounded-md font-bold"
+              className="text-main-l dark:text-main-d flex gap-2 items-center self-end border border-main-l dark:border-main-d py-2 px-4 rounded-md font-bold dark:hover:bg-main-opaca-d hover:bg-main-opaca-l"
             >
               VER TODOS <ArrowRight weight="bold" size={20} />
             </a>
@@ -638,7 +656,7 @@ export function App() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col gap-6 sm:items-center">
+          <div className="flex flex-col gap-6 sm:items-center ">
             <div className="flex flex-col gap-8 sm:flex-row sm:items-center">
               <a
                 href="https://wa.me/5531993206431?text=Olá, vim pelo seu portfólio, e gostaria de conversar um pouco com você..."
@@ -663,13 +681,16 @@ export function App() {
                   <Copy
                     size={30}
                     weight="bold"
-                    className="dark:text-main-d text-main-l drop-shadow-lg opacity-70 transition duration-500 hover:opacity-100"
+                    className="dark:text-main-d text-main-l drop-shadow-lg opacity-70 transition duration-500 hover:opacity-100 cursor-pointer"
                     onClick={copyEmail}
                   />
                 </span>
               </div>
             </div>
-            <button className="text-main-l dark:text-main-d opacity-70 hover:opacity-100 text-lg flex gap-3 font-extrabold">
+            <button
+              className="text-main-l dark:text-main-d opacity-70 hover:opacity-100 text-lg flex gap-3 font-extrabold"
+              onClick={goTop}
+            >
               Voltar ao topo{" "}
               <ArrowUp
                 size={30}

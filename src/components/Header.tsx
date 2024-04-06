@@ -11,7 +11,7 @@ export function Header({ onChangeTheme, theme }: HeaderProps) {
     <header className=" mx-[0.94rem]">
       <div className="flex items-center justify-center gap-4">
         <a href="#" target="_blank">
-          <div className=" p-2 rounded-full bg-icone-l dark:bg-icone-d opacity-50 flex items-center justify-center">
+          <div className=" p-2 rounded-full bg-icone-l dark:bg-icone-d opacity-50 flex items-center justify-center transition duration-500 hover:opacity-100">
             <Linkedin
               size={25}
               className="text-background-l dark:text-background-d"
@@ -21,7 +21,7 @@ export function Header({ onChangeTheme, theme }: HeaderProps) {
           </div>
         </a>
         <a href="https://github.com/Andre-Luiz22" target="_blank">
-          <div className="p-2 rounded-full bg-icone-l dark:bg-icone-d opacity-50  flex items-center justify-center">
+          <div className="p-2 rounded-full bg-icone-l dark:bg-icone-d opacity-50  flex items-center justify-center transition duration-500 hover:opacity-100">
             <GitHub
               size={25}
               className="text-background-l dark:text-background-d"

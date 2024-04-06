@@ -44,6 +44,7 @@ export function Avatar() {
           className="w-[60%] max-w-[180px] aboutMe:max-w-[500px] rounded-bl-3xl rounded-br-3xl"
           src={avatarAndre}
           alt=""
+          draggable={false}
         />
       </div>
     </div>
