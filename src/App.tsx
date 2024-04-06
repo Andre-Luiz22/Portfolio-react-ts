@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { ConfigProvider, message } from "antd";
 import { Header } from "./components/Header";
 import { Avatar } from "./components/Avatar";
@@ -238,12 +238,14 @@ export function App() {
     }
   }, [theme]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const prefersColorScheme = window.matchMedia(
       "(prefers-color-scheme: dark)"
     );
-    setTheme(prefersColorScheme.matches ? "light" : "dark");
-  }, []);
+    setTheme(prefersColorScheme.matches ? "dark" : "light");
+  },[]);
+
+  // useEffect(() => {}, []);
 
   function handleThemeSwitcher() {
     setTheme(theme === "dark" ? "light" : "dark");
