@@ -3,7 +3,7 @@ import monster from "../assets/monster.json";
 import { useEffect, useRef } from "react";
 
 interface MonsterProps {
-  theme: string;
+  theme: boolean;
 }
 
 export function Monster({ theme }: MonsterProps) {
@@ -17,7 +17,7 @@ export function Monster({ theme }: MonsterProps) {
     <Player
       ref={playerRef}
       size={100}
-      colorize={theme === "light" ? "#61398F" : "#7b4ae2"}
+      colorize={!theme ? "#61398F" : "#7b4ae2"}
       onComplete={() => playerRef.current?.playFromBeginning()}
       icon={monster}
     />

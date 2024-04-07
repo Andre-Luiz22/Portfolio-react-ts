@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import { ConfigProvider, message } from "antd";
 import { Header } from "./components/Header";
 import { Avatar } from "./components/Avatar";
@@ -52,8 +52,6 @@ import {
 } from "./components/CarrousselCard";
 import { Monster } from "./components/Monster";
 import { AreaAcademicaCard } from "./components/AreaAcademicaCard";
-import { ANDRoidEButton } from "./components/ANDRoidEButton";
-import { ModalANDRoidE } from "./components/ModalANDRoidE";
 
 const cards: CarrousselCardProps[] = [
   {
@@ -227,28 +225,22 @@ const cards: CarrousselCardProps[] = [
 ];
 
 export function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(
+    (window.matchMedia("(prefers-color-scheme: dark)").matches)
+  );
+
   const [messageApi, contextHolder] = message.useMessage();
-  const [visibilityModalANDRoidE, setVisibityModalANDRoidE] = useState(false);
-  useEffect(() => {
-    if (theme === "light") {
+
+  useLayoutEffect(() => {
+    if (theme) {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);
 
-  useLayoutEffect(() => {
-    const prefersColorScheme = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    );
-    setTheme(prefersColorScheme.matches ? "light" : "dark");
-  }, []);
-
-  // useEffect(() => {}, []);
-
   function handleThemeSwitcher() {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(!theme);
   }
   function copyEmail() {
     messageApi.success({
@@ -269,7 +261,7 @@ export function App() {
     <ConfigProvider
       message={{
         style: {
-          border: `2px solid ${theme === "dark" ? "#61398F" : "#7b4ae2"}`,
+          border: `2px solid ${theme ? "#61398F" : "#7b4ae2"}`,
           borderRadius: "10px",
           width: "fit-content",
           margin: "0 auto",
@@ -278,21 +270,13 @@ export function App() {
       theme={{
         components: {
           Message: {
-            contentBg: theme === "dark" ? "#d0c4dc" : "#261D4A",
-            colorText: theme === "dark" ? "#4A4A4A" : "#FFFFFF",
+            contentBg: theme ? "#d0c4dc" : "#261D4A",
+            colorText: theme ? "#4A4A4A" : "#FFFFFF",
           },
         },
       }}
     >
       <div className="bg-background-l dark:bg-background-d transition duration-1000 pt-[0.94rem] antialiased font-ralaway overflow-x-hidden ">
-        <ANDRoidEButton
-          setModalANDRoidEVisibility={setVisibityModalANDRoidE}
-          visibilityModalANDRoidE={visibilityModalANDRoidE}
-        />
-        <ModalANDRoidE
-          visibilityModalANDRoidE={visibilityModalANDRoidE}
-          setModalANDRoidEVisibility={setVisibityModalANDRoidE}
-        />
         <Header onChangeTheme={handleThemeSwitcher} theme={theme} />
         <section className="flex flex-col mt-8 mx-[0.94rem] mb-24 aboutMe:flex-row aboutMe:items-center aboutMe:justify-evenly">
           <Avatar />
@@ -710,7 +694,7 @@ export function App() {
                   size={25}
                   className="text-background-l dark:text-background-d"
                   strokeWidth={2}
-                  fill={theme === "dark" ? "#F5F3F7" : "#090e16"}
+                  fill={theme ? "#090e16" : "#F5F3F7"}
                 />
               </a>
             </div>
@@ -720,8 +704,9 @@ export function App() {
                   size={25}
                   className="text-background-l dark:text-background-d "
                   strokeWidth={2}
-                  fill={theme === "dark" ? "#F5F3F7" : "#090e16"}
+                  fill={theme ? "#090e16" : "#F5F3F7"}
                 />
+                
               </a>
             </div>
           </div>
