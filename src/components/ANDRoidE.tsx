@@ -65,7 +65,7 @@ export function ANDRoidE() {
               />
             </div>
             <div className="w-full h-full border rounded-md border-main-l dark:border-main-d flex items-end b overflow-hidden">
-              <div className="h-[27rem] sm:h-[30rem] w-full scrollbar-hide overflow-auto px-4">
+              <div className="h-[26rem] sm:h-[30rem] w-full scrollbar-hide overflow-auto px-4">
                 <div className="">
                   {/*  Logica de enviar msg aqui*/}
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
