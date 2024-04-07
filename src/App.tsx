@@ -261,7 +261,7 @@ export function App() {
     <ConfigProvider
       message={{
         style: {
-          border: `2px solid ${theme ? "#61398F" : "#7b4ae2"}`,
+          border: `2px solid ${theme ? "#7b4ae2" : "#61398F"}`,
           borderRadius: "10px",
           width: "fit-content",
           margin: "0 auto",
@@ -270,8 +270,8 @@ export function App() {
       theme={{
         components: {
           Message: {
-            contentBg: theme ? "#d0c4dc" : "#261D4A",
-            colorText: theme ? "#4A4A4A" : "#FFFFFF",
+            contentBg: theme ? "#261D4A" : "#d0c4dc",
+            colorText: theme ?  "#FFFFFF": "#4A4A4A",
           },
         },
       }}
