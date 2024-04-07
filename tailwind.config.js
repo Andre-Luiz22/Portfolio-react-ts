@@ -15,6 +15,13 @@ export default {
       transitionProperty: {
         mine: "font-color, background, opacity",
       },
+      gridTemplateRows: {
+        botContainer: "1fr 4rem",
+      },
+      gridTemplateColumns: {
+        botForm: "1fr 3rem",
+      },
+
       colors: {
         background: {
           l: "#F5F3F7",

@@ -52,6 +52,7 @@ import {
 } from "./components/CarrousselCard";
 import { Monster } from "./components/Monster";
 import { AreaAcademicaCard } from "./components/AreaAcademicaCard";
+import { ANDRoidE } from "./components/ANDRoidE";
 
 const cards: CarrousselCardProps[] = [
   {
@@ -226,7 +227,7 @@ const cards: CarrousselCardProps[] = [
 
 export function App() {
   const [theme, setTheme] = useState(
-    (window.matchMedia("(prefers-color-scheme: dark)").matches)
+    window.matchMedia("(prefers-color-scheme: dark)").matches
   );
 
   const [messageApi, contextHolder] = message.useMessage();
@@ -267,16 +268,28 @@ export function App() {
           margin: "0 auto",
         },
       }}
+      drawer={{
+        style: {
+          background: `${theme ? "#090E16" : "#F5F3F7"}`,
+          color: `${theme ? "#FFFFFF" : "#4A4A4A"}`,
+        },
+        styles: {
+          body: {
+            padding: "5px",
+          },
+        },
+      }}
       theme={{
         components: {
           Message: {
             contentBg: theme ? "#261D4A" : "#d0c4dc",
-            colorText: theme ?  "#FFFFFF": "#4A4A4A",
+            colorText: theme ? "#FFFFFF" : "#4A4A4A",
           },
         },
       }}
     >
       <div className="bg-background-l dark:bg-background-d transition duration-1000 pt-[0.94rem] antialiased font-ralaway overflow-x-hidden ">
+        <ANDRoidE />
         <Header onChangeTheme={handleThemeSwitcher} theme={theme} />
         <section className="flex flex-col mt-8 mx-[0.94rem] mb-24 aboutMe:flex-row aboutMe:items-center aboutMe:justify-evenly">
           <Avatar />
@@ -706,7 +719,6 @@ export function App() {
                   strokeWidth={2}
                   fill={theme ? "#090e16" : "#F5F3F7"}
                 />
-                
               </a>
             </div>
           </div>
