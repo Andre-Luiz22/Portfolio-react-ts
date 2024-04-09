@@ -49,7 +49,6 @@ export function ANDRoidE() {
   function scrollBottom() {
     if (chat?.current) {
       chat.current.scrollIntoView({ block: "end", behavior: "instant" });
-      console.log(chat);
     }
   }
 
@@ -61,7 +60,11 @@ export function ANDRoidE() {
       author: "Você",
     };
     setMessages([...messages, newMessage]);
+    setTimeout(() => {
+      scrollBottom();
+    }, 100);
     setTextMsg("");
+
     const options = {
       method: "POST",
       headers: {
@@ -74,7 +77,7 @@ export function ANDRoidE() {
       }),
     };
 
-    fetch("http://localhost:4000/ANDRoidE", options)
+    fetch("https://backend-portfolio-bna7.onrender.com/ANDRoidE", options)
       .then((result) => result.json())
       .then((data) => {
         const ANDRoidEMsg: Message = {
