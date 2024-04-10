@@ -36,6 +36,8 @@ import {
   SiNestjs,
   SiFlutter,
   SiMongodb,
+  SiTailwindcss,
+  SiDialogflow,
 } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
 import {
@@ -47,6 +49,7 @@ import {
   FaGitAlt,
   FaGithub,
   FaReact,
+  FaBootstrap,
 } from "react-icons/fa";
 import {
   CarrousselCard,
@@ -516,7 +519,7 @@ export function App() {
                 Tecnolgias que conheço
               </strong>
               <div className="overflow-y-hidden w-full scrollbar-hide">
-                <div className="flex gap-3 w-full sm:justify-center">
+                <div className="flex gap-3 w-full 1250sx:justify-center ">
                   <FaHtml5
                     size={70}
                     className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
@@ -541,6 +544,14 @@ export function App() {
                     size={70}
                     className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
                   />
+                  <SiTailwindcss
+                    size={70}
+                    className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                  />
+                  <FaBootstrap
+                    size={70}
+                    className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                  />
                   <FaPython
                     size={70}
                     className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
@@ -562,6 +573,10 @@ export function App() {
                     className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
                   />
                   <SiMongodb
+                    size={70}
+                    className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                  />
+                  <SiDialogflow
                     size={70}
                     className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
                   />

@@ -46,12 +46,13 @@ export default {
       },
       animation: {
         "spin-slow": "spin 30s linear infinite",
-        "dots-loading" : ""
+        "dots-loading": "",
       },
       screens: {
         aboutMe: "940px",
         "300sx": "300px",
         "320sx": "320px",
+        "1250sx": "1250px",
       },
     },
   },
