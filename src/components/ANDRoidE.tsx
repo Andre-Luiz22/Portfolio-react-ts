@@ -10,16 +10,18 @@ import { Drawer } from "antd";
 import { UserMsg } from "./UserMsg";
 import { ANDRoidEMsg } from "./ANDRoidEMsg";
 import { v4 as uuidv4 } from "uuid";
+import { LoadingDots } from "./LoadingDots";
 
 export interface Message {
   id?: string;
-  content: string;
+  content: string | JSX.Element;
   author: "Você" | "ANDRoidE";
 }
 
 export function ANDRoidE() {
   const { innerWidth } = window;
   const [open, setOpen] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps["placement"]>(
     innerWidth >= 640 ? "right" : "bottom"
   );
@@ -54,12 +56,18 @@ export function ANDRoidE() {
 
   function handleSendNewMessage(e: FormEvent) {
     e.preventDefault();
+    setMessageSent(true);
     const newMessage: Message = {
       id: uuidv4(),
       content: textMsg,
       author: "Você",
     };
-    setMessages([...messages, newMessage]);
+    const waitingBot: Message = {
+      id: uuidv4(),
+      content: <LoadingDots />,
+      author: "ANDRoidE",
+    };
+    setMessages([...messages, newMessage, waitingBot]);
     setTimeout(() => {
       scrollBottom();
     }, 100);
@@ -89,6 +97,7 @@ export function ANDRoidE() {
         scrollBottom();
         setTimeout(() => {
           scrollBottom();
+          setMessageSent(false);
         }, 500);
       });
   }
@@ -178,7 +187,10 @@ export function ANDRoidE() {
               placeholder="Escreva uma pergunta..."
               required
             />
-            <button className="bg-main-opaca-l dark:bg-main-opaca-d rounded-full w-fit h-fit p-2 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300">
+            <button
+              disabled={messageSent}
+              className="bg-main-opaca-l dark:bg-main-opaca-d rounded-full w-fit h-fit p-2 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300"
+            >
               <PaperPlaneRight
                 size={30}
                 weight="bold"
