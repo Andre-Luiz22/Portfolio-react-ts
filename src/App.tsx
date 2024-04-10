@@ -35,16 +35,18 @@ import {
   SiNextdotjs,
   SiNestjs,
   SiFlutter,
+  SiMongodb,
 } from "react-icons/si";
+import { GrMysql } from "react-icons/gr";
 import {
   FaHtml5,
   FaNodeJs,
-  FaReact,
   FaPython,
   FaCss3Alt,
   FaSass,
   FaGitAlt,
   FaGithub,
+  FaReact,
 } from "react-icons/fa";
 import {
   CarrousselCard,
@@ -531,6 +533,14 @@ export function App() {
                     size={70}
                     className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
                   />
+                  <FaReact
+                    size={70}
+                    className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                  />
+                  <FaNodeJs
+                    size={70}
+                    className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                  />
                   <FaPython
                     size={70}
                     className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
@@ -544,6 +554,14 @@ export function App() {
                     className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
                   />
                   <FaGithub
+                    size={70}
+                    className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                  />
+                  <GrMysql
+                    size={70}
+                    className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
+                  />
+                  <SiMongodb
                     size={70}
                     className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
                   />
