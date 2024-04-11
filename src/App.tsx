@@ -521,7 +521,6 @@ export function App() {
               <div className="overflow-y-hidden w-full scrollbar-hide">
                 <div className="flex gap-3 w-full 1250sx:justify-center ">
                   <FaHtml5
-                  
                     size={70}
                     className="shrink-0 text-main-opaca-l dark:text-main-opaca-d hover:text-main-l dark:hover:text-main-d transition duration-500"
                   />

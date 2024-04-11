@@ -52,7 +52,6 @@ export function Avatar() {
         </div>
         <div className=" p-2 bg-background-l dark:bg-background-d flex absolute rounded-full bottom-6 right-4">
           <FaGitAlt
-            strokeWidth={20}
             size={"8vw"}
             className="text-main-l dark:text-main-d max-w-7 max-h-7"
           />
