@@ -1,7 +1,8 @@
-import { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import { ConfigProvider, message } from "antd";
 import { Header } from "./components/Header";
 import { Avatar } from "./components/Avatar";
+import { CarrousselCardSkeleton } from "./components/CarrousselCardSkeleton";
 import { FaRegHandPeace } from "react-icons/fa6";
 import { GitHub, Linkedin } from "react-feather";
 import imgAboutMe from "./assets/imgAboutMe.svg";
@@ -58,185 +59,23 @@ import {
 import { Monster } from "./components/Monster";
 import { AreaAcademicaCard } from "./components/AreaAcademicaCard";
 import { ANDRoidE } from "./components/ANDRoidE";
-
-const cards: CarrousselCardProps[] = [
-  {
-    id: 1,
-    title: "Title 1",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos itaque fugit veritatis esse am sunt doloremque, voluptatibus quos neque ullam",
-    img: "https://picsum.photos/id/10/300/200",
-    tags: [
-      {
-        id: 1,
-        value: "html",
-      },
-      {
-        id: 2,
-        value: "react",
-      },
-      {
-        id: 3,
-        value: "node",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "Title 2",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos itaque fugit veritatis esse am sunt doloremque, voluptatibus quos neque ullam",
-    img: "https://picsum.photos/id/11/300/200",
-    tags: [
-      {
-        id: 1,
-        value: "html",
-      },
-      {
-        id: 2,
-        value: "react",
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "Title 3",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos itaque fugit veritatis esse am sunt doloremque, voluptatibus quos neque ullam",
-    img: "https://picsum.photos/id/12/300/200",
-    tags: [
-      {
-        id: 1,
-        value: "html",
-      },
-      {
-        id: 2,
-        value: "react",
-      },
-      {
-        id: 3,
-        value: "node",
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "Title 4",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos itaque fugit veritatis esse am sunt doloremque, voluptatibus quos neque ullam",
-    img: "https://picsum.photos/id/13/300/200",
-    tags: [
-      {
-        id: 1,
-        value: "html",
-      },
-      {
-        id: 2,
-        value: "react",
-      },
-      {
-        id: 3,
-        value: "node",
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: "Title 5",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos itaque fugit veritatis esse am sunt doloremque, voluptatibus quos neque ullam",
-    img: "https://picsum.photos/id/14/300/200",
-    tags: [
-      {
-        id: 1,
-        value: "react",
-      },
-      {
-        id: 2,
-        value: "node",
-      },
-    ],
-  },
-  {
-    id: 6,
-    title: "Title 6",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos itaque fugit veritatis esse am sunt doloremque, voluptatibus quos neque ullam",
-    img: "https://picsum.photos/id/15/300/200",
-    tags: [
-      {
-        id: 1,
-        value: "node",
-      },
-    ],
-  },
-  {
-    id: 7,
-    title: "Title 7",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos itaque fugit veritatis esse am sunt doloremque, voluptatibus quos neque ullam",
-    img: "https://picsum.photos/id/16/300/200",
-    tags: [
-      {
-        id: 1,
-        value: "html",
-      },
-    ],
-  },
-  {
-    id: 8,
-    title: "Title 8",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos itaque fugit veritatis esse am sunt doloremque, voluptatibus quos neque ullam",
-    img: "https://picsum.photos/id/17/300/200",
-    tags: [
-      {
-        id: 1,
-        value: "html",
-      },
-      {
-        id: 2,
-        value: "react",
-      },
-      {
-        id: 3,
-        value: "node",
-      },
-    ],
-  },
-  {
-    id: 9,
-    title: "Title 9",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos itaque fugit veritatis esse am sunt doloremque, voluptatibus quos neque ullam",
-    img: "https://picsum.photos/id/18/300/200",
-    tags: [
-      {
-        id: 1,
-        value: "react",
-      },
-    ],
-  },
-  {
-    id: 10,
-    title: "Title 10",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos itaque fugit veritatis esse am sunt doloremque, voluptatibus quos neque ullam",
-    img: "https://picsum.photos/id/19/300/200",
-    tags: [
-      {
-        id: 1,
-        value: "html",
-      },
-      {
-        id: 2,
-        value: "react",
-      },
-      {
-        id: 3,
-        value: "node",
-      },
-    ],
-  },
-];
+// import { AreaAcademicaCardSkeleton } from "./components/AreaAcademicaCardSkeleton";
 
 export function App() {
   const [theme, setTheme] = useState(
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
 
-  const [messageApi, contextHolder] = message.useMessage();
+  const [isCarrousselCardsLoading, setIsCarrousselCardsLoading] =
+    useState(true);
+  // const [isAreaAcademicaCardsLoading, setIsAreaAcademicaCardsLoading] =
+  //   useState(true);
+  const [carrousselCards, setCarrousselCards] = useState<CarrousselCardProps[]>(
+    []
+  );
+  // const [areaAcademicaCards, setAreaAcademicaCards] = useState([]);
 
+  const [messageApi, contextHolder] = message.useMessage();
   useLayoutEffect(() => {
     if (theme) {
       document.documentElement.classList.add("dark");
@@ -244,6 +83,23 @@ export function App() {
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);
+
+  useEffect(() => {
+    fetch("https://backend-portfolio-bna7.onrender.com/cardProjetos")
+      .then((data) => data.json())
+      .then((result) => {
+        const cards = result.allCards;
+        setCarrousselCards(cards);
+        setIsCarrousselCardsLoading(false);
+      });
+
+    // fetch("https://backend-portfolio-bna7.onrender.com/areaAcademica")
+    //   .then((data) => data.json())
+    //   .then((cards) => {
+    //     setAreaAcademicaCards(cards);
+    //     setIsAreaAcademicaCardsLoading(false);
+    //   });
+  }, []);
 
   function handleThemeSwitcher() {
     setTheme(!theme);
@@ -289,6 +145,10 @@ export function App() {
           Message: {
             contentBg: theme ? "#261D4A" : "#d0c4dc",
             colorText: theme ? "#FFFFFF" : "#4A4A4A",
+          },
+          Skeleton: {
+            gradientToColor: theme ? "#7A4AE288" : "#61398F88",
+            colorFillContent: theme ? "#7A4AE241" : "#61398F41",
           },
         },
       }}
@@ -476,13 +336,17 @@ export function App() {
             </form>
             <div className="w-full overflow-y-hidden scrollbar-hide">
               <div className="flex gap-4 lg:flex-wrap lg:justify-center">
-                {cards.map((card) => (
+                {isCarrousselCardsLoading && (
+                  <CarrousselCardSkeleton quantity={1} />
+                )}
+                {carrousselCards.map((card) => (
                   <CarrousselCard
-                    key={card.id}
+                    key={card._id}
                     img={card.img}
                     desc={card.desc}
                     title={card.title}
                     tags={card.tags}
+                    link={card.link}
                   />
                 ))}
               </div>

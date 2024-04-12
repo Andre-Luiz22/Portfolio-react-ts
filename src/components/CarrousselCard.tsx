@@ -5,11 +5,12 @@ export type TagsCardCarroussel = {
 };
 
 export interface CarrousselCardProps {
-  id?: number;
+  _id?: number;
   title: string;
   desc: string;
   tags: TagsCardCarroussel[];
   img: string;
+  link: string;
 }
 
 //Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
@@ -22,9 +23,10 @@ export function CarrousselCard({
   desc,
   tags,
   img,
+  link,
 }: CarrousselCardProps) {
   return (
-    <a href="#">
+    <a href={link} target="_blank">
       <div className="w-[16.63rem] border-2 border-main-l dark:border-main-d rounded-xl p-4 space-y-3 group hover:bg-main-opaca-l dark:hover:bg-main-opaca-d transition duration-500 h-full flex flex-col justify-between">
         <div>
           <div className="text-text-l dark:text-text-d space-y-2">
