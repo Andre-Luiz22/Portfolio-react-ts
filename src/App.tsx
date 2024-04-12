@@ -337,7 +337,7 @@ export function App() {
             <div className="w-full overflow-y-hidden scrollbar-hide">
               <div className="flex gap-4 lg:flex-wrap lg:justify-center">
                 {isCarrousselCardsLoading && (
-                  <CarrousselCardSkeleton quantity={1} />
+                  <CarrousselCardSkeleton quantity={2} />
                 )}
                 {carrousselCards.map((card) => (
                   <CarrousselCard
