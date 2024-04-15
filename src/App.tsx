@@ -83,12 +83,12 @@ export function App() {
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);
-
+  //https://backend-portfolio-bna7.onrender.com
   useEffect(() => {
-    fetch("https://backend-portfolio-bna7.onrender.com/cardProjetos")
+    fetch("https://backend-portfolio-bna7.onrender.com/favoriteCards")
       .then((data) => data.json())
       .then((result) => {
-        const cards = result.allCards;
+        const cards = result;
         setCarrousselCards(cards);
         setIsCarrousselCardsLoading(false);
       });
@@ -342,8 +342,8 @@ export function App() {
                 {carrousselCards.map((card) => (
                   <CarrousselCard
                     key={card._id}
-                    img={card.img}
-                    desc={card.desc}
+                    imgLink={card.imgLink}
+                    description={card.description}
                     title={card.title}
                     tags={card.tags}
                     link={card.link}

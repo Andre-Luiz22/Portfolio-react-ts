@@ -7,9 +7,11 @@ export type TagsCardCarroussel = {
 export interface CarrousselCardProps {
   _id?: number;
   title: string;
-  desc: string;
+  description: string;
   tags: TagsCardCarroussel[];
-  img: string;
+  imgLink: string;
+  imgPath?: string;
+  imgName?: string;
   link: string;
 }
 
@@ -20,9 +22,9 @@ export interface CarrousselCardProps {
 
 export function CarrousselCard({
   title,
-  desc,
+  description,
   tags,
-  img,
+  imgLink,
   link,
 }: CarrousselCardProps) {
   return (
@@ -32,7 +34,7 @@ export function CarrousselCard({
           <div className="text-text-l dark:text-text-d space-y-2">
             <h2 className="font-bold text-xl">{title}</h2>
             <p className="opacity-50 text-sm group-hover:opacity-100 transition duration-500">
-              {desc}
+              {description}
             </p>
           </div>
           <div className="flex gap-2 flex-wrap mt-2">
@@ -42,7 +44,7 @@ export function CarrousselCard({
           </div>
         </div>
         <div className="rounded-xl overflow-hidden">
-          <img src={img} alt="" />
+          <img src={imgLink} alt="" />
         </div>
       </div>
     </a>
